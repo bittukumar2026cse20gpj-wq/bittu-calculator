@@ -39,7 +39,7 @@ def safe_calculate(expression):
     if len(expression) > 100:
         raise ValueError("Expression too long")
 
-    return solve(ast.parse(expression, mode="eval").body)
+    return solve(ast.parse(expression.replace("^", "**"), mode="eval").body)
 
 
 class CalculatorApp(App):
